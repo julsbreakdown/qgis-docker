@@ -1,0 +1,27 @@
+version: '2'
+
+volumes:
+  qgis-settings:
+
+services:
+
+  qgis:
+    build: . 
+    extra_hosts: &extra_hosts
+      - hostmachine:172.17.0.1
+#      - doku.bbsa.tirol
+    volumes:
+      - ${PWD}:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - qgis-settings:/home/user/.local/share/QGIS/QGIS3/profiles/default
+      - /home/jwaddle/.pg_service.conf:/tmp/.pg_service.conf
+    environment:
+      - PGSERVICEFILE=/tmp/.pg_service.conf
+      - PYTHONPATH=/app:/usr/share/qgis/python/plugins/
+      - QGIS_DEBUG=0
+      - QGIS_LOG_FILE=/dev/null
+      - QGIS_PLUGINPATH=/app
+      - XDG_RUNTIME_DIR=/tmp/runtime-jwaddle
+      - DISPLAY=$DISPLAY
+    entrypoint: ""
+    command: qgis

@@ -1,0 +1,10 @@
+# libbdimage requirements
+scandir >= 1.6
+numpy
+pyproj >= 1.9.5, <2.0.0
+requests >= 2.18
+# documentation builder
+sphinx < 2.0.0
+# other plugin requirements
+future
+Pillow >= 2.9
