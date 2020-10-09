@@ -11,7 +11,7 @@ services:
       - hostmachine:172.17.0.1
 #      - doku.bbsa.tirol
     volumes:
-      - ${PWD}:/app
+      - /home/jwaddle/Documents/qgis-training/sion:/app
       - /tmp/.X11-unix:/tmp/.X11-unix
       - qgis-settings:/home/user/.local/share/QGIS/QGIS3/profiles/default
       - /home/jwaddle/.pg_service.conf:/tmp/.pg_service.conf

@@ -6,7 +6,9 @@ RUN apt update \
      && apt install -y \
         ffmpeg \
         qt5-image-formats-plugins \
-        vim
+        vim \
+	pyqt5-dev-tools \
+        python3-setuptools
 
 RUN pip3 install \
     black \
@@ -16,9 +18,8 @@ RUN pip3 install \
     pydevd \
     pytest \
     pytest-cov
-
-COPY /requirements.txt /tmp/requirements.txt
-COPY
+#RUN pip3 install PyQt5==5.14
+COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install -r /tmp/requirements.txt
 RUN mkdir /tmp/runtime-jwaddle && chmod 700 /tmp/runtime-jwaddle
 RUN mkdir -p /app /home/user \

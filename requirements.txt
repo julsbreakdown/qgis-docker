@@ -1,5 +1,6 @@
 # libbdimage requirements
 scandir >= 1.6
+pb_tool
 numpy
 pyproj >= 1.9.5, <2.0.0
 requests >= 2.18
